@@ -13,7 +13,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Pleae enter the Team manager email address',
+        message: 'Please enter the Team manager email address',
         name: 'manager-email',
     },
     {
