@@ -1,33 +1,42 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 const questions = [
     {
         type: 'input',
         message: 'Please enter the full name of the Team manager',
-        name: 'manager-name'
+        name: 'managerName'
     },
     {
         type: 'input',
         message: 'Please enter the Team manager employee ID',
-        name: 'manager-id'
+        name: 'managerId'
     },
     {
         type: 'input',
         message: 'Please enter the Team manager email address',
-        name: 'manager-email',
+        name: 'managerEmail',
     },
     {
         type: 'input',
         message: 'Please enter the Team manager office number',
-        name: 'manager-number',
+        name: 'managerNumber',
     }
 ]
+
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        if (err)
+            throw err;
+    })
+}
 
 function init() {
     inquirer.prompt(questions)
     .then(function (userInput) {
-        console.log(userInput);
+        writeToFile(" myTeamProfile.html", generateMarkdown(userInput));
     })
-}
+};
 
 init();
