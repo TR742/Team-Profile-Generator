@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('./utils/generateMarkdown');
+const generateMarkdown = require('./src/generateMarkdown');
 
 const questions = [
     {
@@ -35,7 +35,7 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
     .then(function (userInput) {
-        writeToFile(" myTeamProfile.html", generateMarkdown(userInput));
+        writeToFile("./dist/myTeamProfile.html", generateMarkdown(userInput));
     })
 };
 
