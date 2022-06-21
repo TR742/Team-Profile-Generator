@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const menu = require('inquirer-menu');
 const fs = require('fs');
 const generateMarkdown = require('./src/generateMarkdown');
 
